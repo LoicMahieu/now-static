@@ -20,6 +20,7 @@ function validateDistDir(distDir) {
 }
 
 exports.build = async ({ files, entrypoint, workPath, config }) => {
+  console.log(({ files, entrypoint, workPath, config })
   const stream = files[entrypoint].toStream()
   const options = Object.assign({}, config || {})
   const { data } = await FileBlob.fromStream({ stream })
