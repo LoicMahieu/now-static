@@ -29,8 +29,8 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
     (config && config.distDir) || 'dist',
   );
 
-  console.log(distPath, readdirSync(distPath))
-  console.log(mountpoint, readdirSync(mountpoint))
+  // console.log(distPath, readdirSync(distPath))
+  // console.log(mountpoint, readdirSync(mountpoint))
   console.log({
     files,
     entrypoint,
