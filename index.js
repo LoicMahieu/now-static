@@ -26,7 +26,7 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
   const distPath = path.join(
     workPath,
     path.dirname(entrypoint),
-    (config && config.distDir) || '',
+    (config && config.distDir) || 'dist',
   );
 
   console.log(distPath, readdirSync(distPath))
@@ -40,8 +40,6 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
     distPath
   });
 
-  return {
-    "index.html": files["index.html"]
-  }
+  return glob('**', workPath, mountpoint)
 
 };
