@@ -1,7 +1,7 @@
 const download = require("@now/build-utils/fs/download.js"); // eslint-disable-line import/no-extraneous-dependencies
 const glob = require("@now/build-utils/fs/glob.js"); // eslint-disable-line import/no-extraneous-dependencies
 const path = require("path");
-const { existsSync } = require("fs");
+const { existsSync, readdirSync } = require("fs");
 const {
   runNpmInstall,
   runPackageJsonScript,
@@ -28,6 +28,9 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
     path.dirname(entrypoint),
     (config && config.distDir) || '',
   );
+
+  console.log(distPath, readdirSync(distPath))
+  console.log(mountpoint, readdirSync(mountpoint))
 
   await glob('**', distPath, mountpoint)
 
