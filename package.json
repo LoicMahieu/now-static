@@ -1,0 +1,13 @@
+
+{
+  "name": "now-static",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loicmahieu/now-static.git"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
