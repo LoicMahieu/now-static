@@ -32,6 +32,7 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
   // console.log(distPath, readdirSync(distPath))
   // console.log(mountpoint, readdirSync(mountpoint))
   console.log({
+    config,
     files,
     entrypoint,
     workPath,
@@ -40,6 +41,8 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
     distPath
   });
 
-  return glob('**', workPath, mountpoint)
+  return {
+    [entrypoint]: files[entrypoint]
+  }
 
 };
