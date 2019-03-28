@@ -1,5 +1,6 @@
 const download = require("@now/build-utils/fs/download.js"); // eslint-disable-line import/no-extraneous-dependencies
 const glob = require("@now/build-utils/fs/glob.js"); // eslint-disable-line import/no-extraneous-dependencies
+const { FileBlob } = requier("@now/build-utils");
 const path = require("path");
 const { existsSync, readdirSync } = require("fs");
 const {
