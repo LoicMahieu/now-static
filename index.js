@@ -40,6 +40,8 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
     distPath
   });
 
-  return files
+  return {
+    "index.html": files["index.html"]
+  }
 
 };
