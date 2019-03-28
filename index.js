@@ -19,30 +19,10 @@ function validateDistDir(distDir) {
 }
 
 exports.build = async ({ files, entrypoint, workPath, config }) => {
-  console.log("downloading user files...");
-  await download(files, workPath);
-  const mountpoint = path.dirname(entrypoint);
-  const entrypointFsDirname = path.join(workPath, mountpoint);
-  const distPath = path.join(
-    workPath,
-    path.dirname(entrypoint),
-    (config && config.distDir) || 'dist',
-  );
-
-  // console.log(distPath, readdirSync(distPath))
-  // console.log(mountpoint, readdirSync(mountpoint))
-  console.log({
-    config,
-    files,
-    entrypoint,
-    workPath,
-    config,
-    entrypointFsDirname,
-    distPath
-  });
-
-  return {
-    [entrypoint]: files[entrypoint]
-  }
-
+  const stream = files[entrypoint].toStream()
+  const options = Object.assign({}, config || {})
+  const { data } = await FileBlob.fromStream({ stream })
+  const content = data.toString()
+  const result = new FileBlob({ data: content })
+  return { [entrypoint]: result }
 };
