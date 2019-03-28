@@ -1,0 +1,7 @@
+{
+  "name": "test-now-static",
+  "version": 2,
+  "builds": [
+    { "use": "loicmahieu/now-static#master" }
+  ]
+}

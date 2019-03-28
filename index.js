@@ -21,11 +21,20 @@ function validateDistDir(distDir) {
 exports.build = async ({ files, entrypoint, workPath, config }) => {
   console.log("downloading user files...");
   await download(files, workPath);
+  const mountpoint = path.dirname(entrypoint);
+  const entrypointFsDirname = path.join(workPath, mountpoint);
+  const distPath = path.join(
+    workPath,
+    path.dirname(entrypoint),
+    (config && config.distDir) || 'dist',
+  );
 
   console.log({
     files,
     entrypoint,
     workPath,
-    config
+    config,
+    entrypointFsDirname,
+    distPath
   });
 };
