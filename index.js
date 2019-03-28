@@ -31,9 +31,6 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
 
   console.log(distPath, readdirSync(distPath))
   console.log(mountpoint, readdirSync(mountpoint))
-
-  await glob('**', workPath, mountpoint)
-
   console.log({
     files,
     entrypoint,
@@ -42,4 +39,7 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
     entrypointFsDirname,
     distPath
   });
+
+  return glob('**', workPath, mountpoint)
+
 };
