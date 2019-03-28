@@ -32,7 +32,7 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
   console.log(distPath, readdirSync(distPath))
   console.log(mountpoint, readdirSync(mountpoint))
 
-  await glob('**', distPath, mountpoint)
+  await glob('**', workPath, mountpoint)
 
   console.log({
     files,
