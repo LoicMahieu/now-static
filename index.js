@@ -40,6 +40,6 @@ exports.build = async ({ files, entrypoint, workPath, config }) => {
     distPath
   });
 
-  return glob('**', workPath, mountpoint)
+  return files
 
 };
